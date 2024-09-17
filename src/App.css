@@ -1,38 +1,148 @@
-.App {
+/* General Styles */
+.app-container {
   text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 10px 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Container styles */
+.container {
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Status message */
+.status {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Board styles */
+.board {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.board-row {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Square styles */
+.square {
+  border: 2px solid #333;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.square h1 {
+  margin: 0;
+}
+
+/* Hover and active states */
+.square:hover {
+  background-color: #f0f0f0;
+}
+
+.square:active {
+  background-color: green;
+}
+
+/* Reset button */
+.reset-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .status {
+    font-size: 1.2rem;
+  }
+
+  .reset-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .square {
+    width: 60px;
+    height: 60px;
+    font-size: 1rem;
+  }
+
+  .status {
+    font-size: 1rem;
+  }
+
+  .reset-button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .container {
+    margin: 20px auto;
+    padding: 20px;
   }
 }
