@@ -37,7 +37,21 @@ const Board = () => {
     }
 
     const winner = winnerScenario();
-    const status = winner ? `Winner: ${winner}` : `Next player: ${isXTurn ? 'X' : 'O'}`
+    const reset = state.every(value => value !== null);
+    const status = winner ? `Winner is : ${winner}` : reset ? `No winners this time. It's a tie!` : `Next player : ${isXTurn ? 'X' : 'O'}`
+
+    // Inline style for the status message
+    const statusStyle = {
+        color: winner
+            ? '#28a745'
+            : reset
+                ? 'chocolate'
+                : '#007bff',
+        fontSize: '20px',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: '10px'
+    };
 
     const resetGame = () => {
         setState(Array(9).fill(null));
@@ -46,7 +60,7 @@ const Board = () => {
 
     return (
         <div className="container">
-            <div className="status">{status}</div>
+            <div className="status" style={statusStyle}>{status}</div>
             <div className="board-row">
                 <Square onClick={() => handleClick(0)} value={state[0]} />
                 <Square onClick={() => handleClick(1)} value={state[1]} />
@@ -62,7 +76,7 @@ const Board = () => {
                 <Square onClick={() => handleClick(7)} value={state[7]} />
                 <Square onClick={() => handleClick(8)} value={state[8]} />
             </div>
-            {winner && (
+            {(winner || reset) && (
                 <button className="reset-button" onClick={resetGame}>
                     Restart
                 </button>
